@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1455884473 source:g:\code\simulation\main.cpp
+	<iostream>
+	"def.h"
+
+1455887800 g:\code\simulation\def.h
+	<iostream>
+	<algorithm>
+	<vector>
+
+1455886593 source:g:\code\simulation\def.cpp
+	"def.h"
+
