@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1459543692 source:g:\code\preshuffle\def.cpp
+	"def.h"
+
+1459558776 g:\code\preshuffle\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1459490650 source:g:\code\preshuffle\main.cpp
+	<iostream>
+	"def.h"
+
