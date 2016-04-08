@@ -104,19 +104,19 @@ private:
                                 B.push_back(i);
                                 continue;
                         }
-                        for(j=D;j > 0;--j)
+                        int count =0;
+                        for(j=D; count < height[i]-1; --j, count++)
                         {
-                                if(mbox[i][j].v == MAXNUM || mbox[i][j-1].v == MAXNUM)
-                                {
-                                        B.push_back(i);
-                                        break;
-                                }
                                 if(mbox[i][j]<mbox[i][j-1])
                                 {
                                         A.push_back(i);
                                         break;
                                 }
-
+                        }
+                        if(count==height[i]-1)
+                        {
+                                if(height[i]!=D)
+                                        B.push_back(i);
                         }
 
                 }
@@ -126,7 +126,7 @@ private:
 public:
         simulator()
         {
-                N = 6;
+                N = 10;
                 D = 6;
 //                cout << "number of stacks: ";
 //                cin >> N;

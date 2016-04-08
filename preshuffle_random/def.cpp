@@ -1,5 +1,4 @@
 #include "def.h"
-
 void simulator::init()
 {
 //        mbox[1][6].setVal(2,1);
@@ -34,9 +33,9 @@ void simulator::init()
                         column = rand() % N + 1;
                 } while(height[column] >= D);
 
-                x = rand() %10;
-                y = rand() %10;
-                z = rand() %9 + 1;
+                x = 1+rand() %5;
+                y = 1+rand() %3;
+                z = 0;
                 setTopVal(column,x,y,z);
                 height[column]++;
         }
@@ -471,7 +470,7 @@ void simulator::run()
         int last_s;
         int last_e;
 
-        while(!check_state() && currentStep != 30)
+        while(!check_state() && currentStep != 50)
         {
                 cout <<"----------------------------------------------------------\n";
                 last_e = end;
@@ -528,8 +527,12 @@ void simulator::run()
                                 {
                                         if(p.empty())
                                                 break;
+                                        int tmp = p.top()->idx;
+
+
 
                                         e.push(p.top()); p.pop();
+
                                         if(e.top()->val < s.top()->val)
                                         {
                                                 e.pop();

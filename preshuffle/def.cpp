@@ -2,23 +2,48 @@
 
 void simulator::init()
 {
-        mbox[1][6].setVal(2,1);
-        mbox[1][5].setVal(5,3);
-        mbox[2][6].setVal(3,3);
-        mbox[2][5].setVal(2,1);
-        mbox[3][6].setVal(4,1);
-        mbox[3][5].setVal(3,3);
-        mbox[3][4].setVal(2,2);
-        mbox[4][6].setVal(4,2);
-        mbox[4][5].setVal(4,2);
-        mbox[4][4].setVal(4,1);
-        mbox[5][6].setVal(1,1);
-        mbox[5][5].setVal(5,3);
-        mbox[6][6].setVal(4,2);
-        mbox[6][5].setVal(3,2);
-        mbox[6][4].setVal(2,3);
-        mbox[6][3].setVal(1,1);
-        mbox[6][2].setVal(5,2);
+        mbox[1][6].setVal(2,3,3);
+        mbox[1][5].setVal(5,2,3);
+        mbox[1][4].setVal(3,3,2);
+        mbox[2][6].setVal(1,2,1);
+        mbox[2][5].setVal(4,2,2);
+        mbox[2][4].setVal(5,3,2);
+        mbox[3][6].setVal(3,1,1);
+        mbox[3][5].setVal(4,2,1);
+        mbox[3][4].setVal(2,1,3);
+        mbox[3][3].setVal(4,3,1);
+        mbox[3][2].setVal(3,2,3);
+        mbox[4][6].setVal(2,1,2);
+        mbox[4][5].setVal(2,2,2);
+        mbox[5][6].setVal(3,3,2);
+        mbox[5][5].setVal(2,1,1);
+        mbox[5][4].setVal(2,2,1);
+        mbox[5][3].setVal(1,1,3);
+        mbox[6][6].setVal(3,3,1);
+        mbox[6][5].setVal(1,2,3);
+        mbox[6][4].setVal(4,3,1);
+        mbox[6][3].setVal(2,3,3);
+        mbox[6][2].setVal(5,2,3);
+        mbox[7][6].setVal(2,1,1);
+        mbox[7][5].setVal(3,2,1);
+        mbox[7][4].setVal(4,2,2);
+        mbox[7][3].setVal(2,1,1);
+        mbox[7][2].setVal(4,2,2);
+        mbox[8][6].setVal(2,3,1);
+        mbox[8][5].setVal(4,3,1);
+        mbox[8][4].setVal(3,2,3);
+        mbox[8][3].setVal(5,2,3);
+        mbox[8][2].setVal(5,2,3);
+        mbox[9][6].setVal(5,3,3);
+        mbox[9][5].setVal(4,1,2);
+        mbox[9][4].setVal(4,2,2);
+        mbox[9][3].setVal(2,1,1);
+        mbox[10][6].setVal(4,3,2);
+        mbox[10][5].setVal(3,1,1);
+        mbox[10][4].setVal(2,3,3);
+        mbox[10][3].setVal(1,1,3);
+        mbox[10][2].setVal(3,3,1);
+        mbox[10][1].setVal(2,1,3);
 }
 
 void simulator::print()
@@ -449,7 +474,7 @@ void simulator::run()
         int last_s;
         int last_e;
 
-        while(!check_state() && currentStep != 30)
+        while(!check_state() && currentStep != 50)
         {
                 cout <<"----------------------------------------------------------\n";
                 last_e = end;
@@ -506,8 +531,12 @@ void simulator::run()
                                 {
                                         if(p.empty())
                                                 break;
+                                        int tmp = p.top()->idx;
+
+
 
                                         e.push(p.top()); p.pop();
+
                                         if(e.top()->val < s.top()->val)
                                         {
                                                 e.pop();
@@ -560,4 +589,3 @@ void simulator::updateMbox(int start, int end)
         mbox[end][D-height[end]].setVal(x,y,z);
 
 }
-
