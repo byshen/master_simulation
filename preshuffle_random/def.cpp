@@ -18,7 +18,7 @@ void simulator::init()
 //        mbox[6][4].setVal(2,3);
 //        mbox[6][3].setVal(1,1);
 //        mbox[6][2].setVal(5,2);
-        int num = N*D*0.6;
+        int num = N*D*0.7;
         /// z 1 - 9;
         /// x 0 - 9;
         /// y 0 - 9;
@@ -33,15 +33,14 @@ void simulator::init()
                         column = rand() % N + 1;
                 } while(height[column] >= D);
 
-                x = 1+rand() %5;
-                y = 1+rand() %3;
+                x = 1+rand() %8;
+                y = 1+rand() %4;
                 z = 0;
                 setTopVal(column,x,y,z);
                 height[column]++;
         }
 
 }
-
 void simulator::print()
 {
         for(int j=1;j<D+1;++j)
@@ -240,9 +239,11 @@ int simulator::getMinTopMinHeightMaxBottom(int start)
 }
 int simulator::getMinTopMaxHeightMinBottom(int start)
 {
-        //去除start已选出和满栈的栈
+        // 去除start已选出和满栈的栈
         // 从不压栈的栈中选啊啊啊啊啊
         // 还需要大于start啊
+
+
         vector<int> res(B);
 
         eraseVecItem(res, start);
@@ -265,16 +266,36 @@ int simulator::getMinTopMaxHeightMinBottom(int start)
                 cout << "Error\n";
                 return -1;
         }
+
         if (res.size() == 1)
                 return res[0];
 
         int mint = 1000000000;
+
+
 
         for(size_t i=0;i<res.size();++i)
         {
                 if (height[res[i]]==0)
                         return res[i];
         }
+
+        //priority_queue<int,vector<int>, greater<int> > great;
+        priority_queue<int> great;
+
+        for(size_t i=0;i<res.size();++i)
+        {
+                if(getTopVal(res[i]) >= getTopVal(start))
+                {
+                        great.push(res[i]);
+                }
+        }
+        if (great.size() > 0)
+        {
+                cout << "2A" << great.top()<<": " << great.size() <<"\n";
+                return great.top();
+        }
+
         vector<int> res1;
         for(size_t i=0;i<res.size();++i)
         {
@@ -331,6 +352,7 @@ int simulator::getMinTopMaxHeightMinBottom(int start)
                         return z;
                 }
         }
+
 }
 int simulator::getMaxTopMinHeightMaxBottom()
 {
@@ -527,9 +549,6 @@ void simulator::run()
                                 {
                                         if(p.empty())
                                                 break;
-                                        int tmp = p.top()->idx;
-
-
 
                                         e.push(p.top()); p.pop();
 
@@ -553,20 +572,24 @@ void simulator::run()
                                 cout << currentStep << " + method 2"<< endl;
                         }
                 }
+
                 if(cs!= 1)
                 {
                         start = chooseStart(cs);
                         end = chooseEnd(cs,start);
-
-                        if(start == last_e && end == last_s)
-                        {
-                                ///
-                                cout << "fuck !!!!!!!!!!!!!!!!!\n";
-                                start = getMinHeight();
-                                end = chooseEnd(3, start);
-                        }
-
                 }
+
+                if( (start == last_e && end == last_s) && height[last_s]!=0)
+                {
+                        ///
+                        cout <<start <<last_e << end << last_s << "fuck !!!!!!!!!!!!!!!!!\n";
+                        start = last_s;
+                        if(cs != 1)
+                                end = chooseEnd(3, start);
+                        else
+                                end = chooseEnd(2, start);
+                }
+
                 cout <<"start" << start <<"end"<<end<<endl;
                 updateMbox(start, end);
                 print();

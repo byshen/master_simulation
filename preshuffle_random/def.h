@@ -126,7 +126,7 @@ private:
 public:
         simulator()
         {
-                N = 10;
+                N = 6;
                 D = 6;
 //                cout << "number of stacks: ";
 //                cin >> N;

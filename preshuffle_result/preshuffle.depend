@@ -1,0 +1,137 @@
+# depslib dependency file v1.0
+1459543692 source:g:\code\preshuffle\def.cpp
+	"def.h"
+
+1459558776 g:\code\preshuffle\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1459490650 source:g:\code\preshuffle\main.cpp
+	<iostream>
+	"def.h"
+
+1460085136 source:c:\users\administrator\desktop\preshuffle\def.cpp
+	"def.h"
+
+1460085176 c:\users\administrator\desktop\preshuffle\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1460080610 source:c:\users\administrator\desktop\preshuffle\main.cpp
+	<iostream>
+	<stdio.h>
+	"def.h"
+
+1460078113 source:f:\preshuffle\def.cpp
+	"def.h"
+
+1459558778 f:\preshuffle\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1459490652 source:f:\preshuffle\main.cpp
+	<iostream>
+	"def.h"
+
+1460097847 source:d:\论文程序\preshuffle\def.cpp
+	"def.h"
+
+1460098811 d:\论文程序\preshuffle\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1459490652 source:d:\论文程序\preshuffle\main.cpp
+	<iostream>
+	"def.h"
+
+1460085136 source:c:\users\shenb\desktop\preshuffle(已输入三位数箱号）\preshuffle\def.cpp
+	"def.h"
+
+1460085176 c:\users\shenb\desktop\preshuffle(已输入三位数箱号）\preshuffle\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1460080610 source:c:\users\shenb\desktop\preshuffle(已输入三位数箱号）\preshuffle\main.cpp
+	<iostream>
+	<stdio.h>
+	"def.h"
+
+1460247730 source:c:\users\shenb\desktop\desktop\preshuffle_result\def.cpp
+	"def.h"
+
+1460085176 c:\users\shenb\desktop\desktop\preshuffle_result\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1460130309 source:c:\users\shenb\desktop\desktop\preshuffle_result\main.cpp
+	<iostream>
+	<stdio.h>
+	"def.h"
+	<time.h>
+
+1460130309 source:c:\users\administrator\desktop\desktop\preshuffle_result\main.cpp
+	<iostream>
+	<stdio.h>
+	"def.h"
+	<time.h>
+
+1460292243 c:\users\administrator\desktop\desktop\preshuffle_result\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1460291540 source:c:\users\administrator\desktop\desktop\preshuffle_result\def.cpp
+	"def.h"
+
+1460269359 source:c:\users\shenb\desktop\desktop已输入数据\desktop\preshuffle_result\def.cpp
+	"def.h"
+
+1460292243 c:\users\shenb\desktop\desktop已输入数据\desktop\preshuffle_result\def.h
+	<iostream>
+	<vector>
+	<set>
+	<queue>
+	<stack>
+	<random>
+	<time.h>
+
+1460266668 source:c:\users\shenb\desktop\desktop已输入数据\desktop\preshuffle_result\main.cpp
+	<iostream>
+	<stdio.h>
+	"def.h"
+	<time.h>
+

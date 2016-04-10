@@ -2,48 +2,41 @@
 
 void simulator::init()
 {
-        mbox[1][6].setVal(2,3,3);
-        mbox[1][5].setVal(5,2,3);
-        mbox[1][4].setVal(3,3,2);
-        mbox[2][6].setVal(1,2,1);
-        mbox[2][5].setVal(4,2,2);
-        mbox[2][4].setVal(5,3,2);
-        mbox[3][6].setVal(3,1,1);
-        mbox[3][5].setVal(4,2,1);
-        mbox[3][4].setVal(2,1,3);
-        mbox[3][3].setVal(4,3,1);
-        mbox[3][2].setVal(3,2,3);
-        mbox[4][6].setVal(2,1,2);
-        mbox[4][5].setVal(2,2,2);
-        mbox[5][6].setVal(3,3,2);
-        mbox[5][5].setVal(2,1,1);
-        mbox[5][4].setVal(2,2,1);
-        mbox[5][3].setVal(1,1,3);
-        mbox[6][6].setVal(3,3,1);
-        mbox[6][5].setVal(1,2,3);
-        mbox[6][4].setVal(4,3,1);
-        mbox[6][3].setVal(2,3,3);
-        mbox[6][2].setVal(5,2,3);
-        mbox[7][6].setVal(2,1,1);
-        mbox[7][5].setVal(3,2,1);
-        mbox[7][4].setVal(4,2,2);
-        mbox[7][3].setVal(2,1,1);
-        mbox[7][2].setVal(4,2,2);
-        mbox[8][6].setVal(2,3,1);
-        mbox[8][5].setVal(4,3,1);
-        mbox[8][4].setVal(3,2,3);
-        mbox[8][3].setVal(5,2,3);
-        mbox[8][2].setVal(5,2,3);
-        mbox[9][6].setVal(5,3,3);
-        mbox[9][5].setVal(4,1,2);
-        mbox[9][4].setVal(4,2,2);
-        mbox[9][3].setVal(2,1,1);
-        mbox[10][6].setVal(4,3,2);
-        mbox[10][5].setVal(3,1,1);
-        mbox[10][4].setVal(2,3,3);
-        mbox[10][3].setVal(1,1,3);
-        mbox[10][2].setVal(3,3,1);
-        mbox[10][1].setVal(2,1,3);
+        mbox[1][5].setVal(6,0);
+        mbox[1][4].setVal(4,0);
+        mbox[1][3].setVal(4,0);
+        mbox[1][2].setVal(4,0);
+        mbox[1][1].setVal(2,0);
+        mbox[2][5].setVal(9,0);
+        mbox[2][4].setVal(7,0);
+        mbox[2][3].setVal(1,0);
+        mbox[3][5].setVal(2,0);
+        mbox[3][4].setVal(6,0);
+        mbox[3][3].setVal(7,0);
+        mbox[3][2].setVal(8,0);
+        mbox[4][5].setVal(6,0);
+        mbox[4][4].setVal(3,0);
+        mbox[5][5].setVal(9,0);
+        mbox[5][4].setVal(9,0);
+        mbox[5][3].setVal(6,0);
+        mbox[6][5].setVal(3,0);
+        mbox[6][4].setVal(1,0);
+        mbox[6][3].setVal(6,0);
+        mbox[6][2].setVal(1,0);
+        mbox[7][5].setVal(9,0);
+        mbox[7][4].setVal(6,0);
+        mbox[7][3].setVal(8,0);
+        mbox[7][2].setVal(7,0);
+        mbox[8][5].setVal(3,0);
+        mbox[9][5].setVal(2,0);
+        mbox[9][4].setVal(7,0);
+        mbox[9][3].setVal(0,0,1);
+        mbox[9][2].setVal(7,0);
+        mbox[9][1].setVal(5,0);
+        mbox[10][5].setVal(5,0);
+        mbox[10][4].setVal(2,0);
+        mbox[10][3].setVal(6,0);
+        mbox[10][2].setVal(6,0);
 }
 
 void simulator::print()
@@ -244,9 +237,11 @@ int simulator::getMinTopMinHeightMaxBottom(int start)
 }
 int simulator::getMinTopMaxHeightMinBottom(int start)
 {
-        //去除start已选出和满栈的栈
+        // 去除start已选出和满栈的栈
         // 从不压栈的栈中选啊啊啊啊啊
         // 还需要大于start啊
+
+
         vector<int> res(B);
 
         eraseVecItem(res, start);
@@ -269,16 +264,36 @@ int simulator::getMinTopMaxHeightMinBottom(int start)
                 cout << "Error\n";
                 return -1;
         }
+
         if (res.size() == 1)
                 return res[0];
 
         int mint = 1000000000;
+
+
 
         for(size_t i=0;i<res.size();++i)
         {
                 if (height[res[i]]==0)
                         return res[i];
         }
+
+        //priority_queue<int,vector<int>, greater<int> > great;
+        priority_queue<int> great;
+
+        for(size_t i=0;i<res.size();++i)
+        {
+                if(getTopVal(res[i]) >= getTopVal(start))
+                {
+                        great.push(res[i]);
+                }
+        }
+        if (great.size() > 0)
+        {
+                cout << "2A" << great.top()<<": " << great.size() <<"\n";
+                return great.top();
+        }
+
         vector<int> res1;
         for(size_t i=0;i<res.size();++i)
         {
@@ -335,6 +350,7 @@ int simulator::getMinTopMaxHeightMinBottom(int start)
                         return z;
                 }
         }
+
 }
 int simulator::getMaxTopMinHeightMaxBottom()
 {
@@ -531,9 +547,6 @@ void simulator::run()
                                 {
                                         if(p.empty())
                                                 break;
-                                        int tmp = p.top()->idx;
-
-
 
                                         e.push(p.top()); p.pop();
 
@@ -557,20 +570,24 @@ void simulator::run()
                                 cout << currentStep << " + method 2"<< endl;
                         }
                 }
+
                 if(cs!= 1)
                 {
                         start = chooseStart(cs);
                         end = chooseEnd(cs,start);
-
-                        if(start == last_e && end == last_s)
-                        {
-                                ///
-                                cout << "fuck !!!!!!!!!!!!!!!!!\n";
-                                start = getMinHeight();
-                                end = chooseEnd(3, start);
-                        }
-
                 }
+
+                if( (start == last_e && end == last_s) && height[last_s]!=0)
+                {
+                        ///
+                        cout <<start <<last_e << end << last_s << "fuck !!!!!!!!!!!!!!!!!\n";
+                        start = last_s;
+                        if(cs != 1)
+                                end = chooseEnd(3, start);
+                        else
+                                end = chooseEnd(2, start);
+                }
+
                 cout <<"start" << start <<"end"<<end<<endl;
                 updateMbox(start, end);
                 print();

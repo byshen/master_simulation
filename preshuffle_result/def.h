@@ -127,7 +127,7 @@ public:
         simulator()
         {
                 N = 10;
-                D = 6;
+                D = 5;
 //                cout << "number of stacks: ";
 //                cin >> N;
 //                cout << "number of depths: ";
